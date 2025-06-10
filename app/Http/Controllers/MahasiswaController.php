@@ -11,17 +11,29 @@ class MahasiswaController extends Controller
         $mahasiswa = Mahasiswa::all(); // Mengambil semua data mahasiswa
         return $mahasiswa;
     }
+
+
+    public function getMahasiswaDosenPembimbing()
+    {
+        $mahasiswa = Mahasiswa::join('dosen_pembimbings', 'mahasiswa.id', '=', 'dosen_pembimbings.mahasiswa_id')
+            ->select('mahasiswa.*', 'dosen_pembimbings.nama as dosen_nama')
+            ->get();
+            
+        return $mahasiswa;  
+    }
+
+
     public function DeleteMahasiswa(){
-        $mahasiswa = Mahasiswa::find(2);
+        $mahasiswa = Mahasiswa::find(11);
 
         $mahasiswa->delete();
         return $mahasiswa;
     }
 
     public function UpdateMahasiswa(){
-        $mahasiswa = Mahasiswa::find(3);
+        $mahasiswa = Mahasiswa::find(9);
 
-        $mahasiswa->nama = "Marcellus Armstrong";
+        $mahasiswa->jenis_kelamin = "laki-laki";
         $mahasiswa->save();
     }
 
