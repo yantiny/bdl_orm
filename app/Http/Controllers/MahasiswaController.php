@@ -24,4 +24,18 @@ class MahasiswaController extends Controller
         $mahasiswa->nama = "Marcellus Armstrong";
         $mahasiswa->save();
     }
+
+    public function createMahasiswa()
+    {
+        $mahasiswa = new Mahasiswa();
+        $mahasiswa->nim = "1234567890";
+        $mahasiswa->nama = "Marcellus Armstrong";
+        $mahasiswa->jenis_kelamin = "perempuan";
+        $mahasiswa->tanggal_lahir = "2000-01-01";
+        $mahasiswa->alamat = "Jl. Contoh Alamat No. 123";
+        $mahasiswa->jurusan = "Teknik Informatika";
+        $mahasiswa->email = "marcellus@example.com";
+        $mahasiswa->save();
+
+    }
 }
